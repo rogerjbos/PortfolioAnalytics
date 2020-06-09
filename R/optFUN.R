@@ -18,7 +18,8 @@
 gmv_opt <- function(R, constraints, moments, lambda, target, lambda_hhi, conc_groups, solver="quadprog", control=NULL){
   stopifnot("package:ROI" %in% search() || requireNamespace("ROI", quietly=TRUE))
   plugin <- paste0("ROI.plugin.", solver)
-  stopifnot(paste0("package:", plugin) %in% search() || requireNamespace(plugin, quietly=TRUE))
+  # stopifnot(paste0("package:", plugin) %in% search() || requireNamespace(plugin, quietly=TRUE))
+  stopifnot(paste0("package:", plugin) %in% search() || requireNamespace(plugin))
   
   # Check for cleaned returns in moments
   if(!is.null(moments$cleanR)) R <- moments$cleanR
